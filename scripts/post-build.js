@@ -15,6 +15,9 @@ async function moveFiles() {
         if (await fs.pathExists(enHtmlPath)) {
             await fs.rename(enHtmlPath, indexHtmlPath);
         }
+        // 在out目录下生成.ok文件，用于标识成功便于 python 脚本判断是否成功
+        const okFilePath = path.join(OUT_DIR, '.ok');
+        await fs.writeFile(okFilePath, '');
         console.log('Successfully moved files from en directory to root');
     } catch (error) {
         console.error('Error moving files:', error);
