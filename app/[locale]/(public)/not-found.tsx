@@ -1,6 +1,9 @@
 'use client';
+
 import { Link } from '@/lib/i18n/navigation';
 import Image from 'next/image';
+// 必须添加，避免纯静态编译报错
+export const dynamic = 'force-static'
 export default function NotFoundPage() {
   return (
     <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start h-screen md:px-8">

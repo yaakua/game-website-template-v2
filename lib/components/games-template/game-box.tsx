@@ -6,6 +6,7 @@ import { getHomeSettings } from '@/lib/utils/game-box-settings';
 import {GameCategorySection} from '@/lib/components/game-category';
 import GameGroup from '@/lib/components/game-category/GameGroup';
 import { AppLayout } from '@/lib/components/layout/AppLayout';
+// 必须添加，避免纯静态编译报错
 export const dynamic = 'force-static'
 interface Props {
   params: Promise<{ locale: string }>;

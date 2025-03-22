@@ -1,12 +1,12 @@
-import { alternatesCanonical, alternatesLanguage, defaultLocale, locales } from '@/lib/i18n/locales';
+import { alternatesLanguage, defaultLocale, locales } from '@/lib/i18n/locales';
 import { Link } from '@/lib/i18n/navigation';
-import { ArticleMetadata, getArticlesData } from '@/lib/utils/blogs';
+import { getArticlesData } from '@/lib/utils/blogs';
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { notFound, permanentRedirect } from 'next/navigation';
-import {siteConfig} from '@/lib/config/site';
+import { notFound } from 'next/navigation';
+import { siteConfig } from '@/lib/config/site';
 import dayjs from 'dayjs';
-import {siteConfig as mainConfig} from '@/lib/config/site'
+import { siteConfig as mainConfig } from '@/lib/config/site';
 import { AppLayout } from '@/lib/components/layout/AppLayout';
 import { getHomeSettings } from '@/lib/utils/game-box-settings';
 export const dynamic = 'force-static'

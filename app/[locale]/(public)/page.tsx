@@ -16,6 +16,8 @@ import CustomizeFeatures from '@/app/[locale]/(public)/views/CustomizeFeatures';
 import { AppLayout } from '@/lib/components/layout/AppLayout';
 import { getHomeSettings } from '@/lib/utils/game-box-settings';
 import matter from 'gray-matter';
+// 必须添加，避免纯静态编译报错
+export const dynamic = 'force-static'
 type Props = {
   params: Promise<{ locale: string }>;
 };

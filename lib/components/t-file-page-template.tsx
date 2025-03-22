@@ -11,7 +11,8 @@ import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {siteConfig as mainConfig} from '@/lib/config/site'
 import { AppLayout } from '@/lib/components/layout/AppLayout';
 import { getHomeSettings } from '@/lib/utils/game-box-settings';
-
+// 必须添加，避免纯静态编译报错
+export const dynamic = 'force-static'
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
