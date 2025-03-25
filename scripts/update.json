@@ -1,4 +1,14 @@
 {
+    "2025-03-25": {
+        "version": "2.0.21",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "修复游戏盒子首页推荐游戏其他语言内容获取不正确的问题"
+        ],
+        "modify": [
+            "lib/utils/game-box-settings.ts"
+        ]
+    },
     "2025-02-26 17": {
         "version": "2.0.20",
         "messagesKeyModify": false,

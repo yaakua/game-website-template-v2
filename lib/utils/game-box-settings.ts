@@ -17,10 +17,14 @@ export const getHomeSettings = async (locale: string) => {
     // 1. 加载基础配置
     try {
       settings = (await import(`@/resources/game-box/${locale}.json`)).default  as unknown as GameBoxSettings;
+      // 使用默认语言的推荐游戏
+      settings.recommended = enSettings.recommended;
     } catch {
       try{
         // 不可直接写死en,避免编译时，因为文件不存在导致报错。而是采用动态拼接参数
         settings = (await import(`@/resources/game-box/${defaultLoclae}.json`)).default as unknown as GameBoxSettings;
+              // 使用默认语言的推荐游戏
+        settings.recommended = enSettings.recommended;
       }catch{
         // 非盒子游戏模板，有可能不存在这个en.json文件，避免报错
         return settings;
