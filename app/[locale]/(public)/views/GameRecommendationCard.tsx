@@ -1,6 +1,8 @@
 import { RecommendationItem } from '@/lib/types';
 import React from 'react';
 import GameCard from './GameCard';
+import RecommendTopSlot from '@/lib/components/slot/recommend-top-slot';
+import RecommendBottomSlot from '@/lib/components/slot/recommend-bottom-slot';
 type GroupedGames = {
   [key: string]: RecommendationItem[];
 };
@@ -47,9 +49,11 @@ export default async function GameRecommendationCard({ locale }: { locale: strin
   return (
     <div className="hidden lg:block w-full lg:w-80 -mt-2">
       <div className="bg-card/50 rounded-lg px-3">
+        <RecommendTopSlot/>
         <div className="grid grid-cols-2 auto-rows-auto gap-2">
         <GameCard groupedGames={groupedGames} />
         </div>
+        <RecommendBottomSlot/>
       </div>
     </div>
   );

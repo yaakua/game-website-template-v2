@@ -17,6 +17,8 @@ import CustomizeFeatures from '@/app/[locale]/(public)/views/CustomizeFeatures';
 import { AppLayout } from '@/lib/components/layout/AppLayout';
 import { getHomeSettings } from '@/lib/utils/game-box-settings';
 import matter from 'gray-matter';
+import IframeTopSlot from '@/lib/components/slot/iframe-top-slot';
+import IframeBottomSlot from '@/lib/components/slot/iframe-bottom-slot';
 type Props = {
   params: Promise<{ locale: string }>;
 };
@@ -63,8 +65,9 @@ export default async function Page({ params }: Props) {
         <div className="flex flex-col lg:flex-row">
           {/* 左侧主要内容区域 */}
           <div className="flex-1 min-w-0">
+            <IframeTopSlot/>
             <IframeSection pageName={pageName} />
-           
+            <IframeBottomSlot/>
             <div className="">
               <SectionWrapper className="max-full">
                 {siteConfig2.customizeFeatures && features2ContentResult? <CustomizeFeatures content={features2ContentResult} /> : <Features pageName={pageName} />}

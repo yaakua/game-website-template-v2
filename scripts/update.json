@@ -1,4 +1,24 @@
 {
+    "2025-04-12": {
+        "version": "2.0.23",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "增加自定义header内容，支持插入任意script标签",
+            "游戏的iframe上下，右侧推荐游戏的位置增加自定义内容，可以插入google adsense广告代码单元"
+        ],
+        "modify": [
+            "app/[locale]/(public)/layout.tsx",
+            "app/[locale]/(public)/views/GameRecommendationCard.tsx",
+            "lib/components/games-template/page.tsx",
+            "lib/types/site.ts"
+        ],
+        "add": [
+            "lib/components/slot/iframe-bottom-slot.tsx",
+            "lib/components/slot/iframe-top-slot.tsx",
+            "lib/components/slot/recommend-bottom-slot.tsx",
+            "lib/components/slot/recommend-top-slot.tsx"
+        ]
+    },
     "2025-03-26 18": {
         "version": "2.0.22",
         "messagesKeyModify": false,
@@ -8,7 +28,7 @@
         "modify": [
             "app/[locale]/(public)/games/page.tsx",
             "app/[locale]/(public)/views/IframeSection.tsx"
-        ]   
+        ]
     },
     "2025-03-25": {
         "version": "2.0.21",

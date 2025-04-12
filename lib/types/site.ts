@@ -133,6 +133,8 @@ export interface SiteConfig {
   categories?:string[]
   // 模板类型
   templateType?:string
+  // 自定义head内容
+  customHeadContent?:string
 }
 
 export interface GameCategory {
