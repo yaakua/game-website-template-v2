@@ -40,3 +40,4 @@ next-env.d.ts
 .vscode
 .idea
 yarn.lock
+game-website-template-v2.code-workspace

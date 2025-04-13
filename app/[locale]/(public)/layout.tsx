@@ -17,24 +17,6 @@ type Props = {
   children: ReactNode;
   params: Promise<{ locale: string }>;
 };
-export async function generateMetadata() {
-  // 可以从数据库或配置中获取用户的自定义内容
-  const customHeadContent = siteConfig.customHeadContent;
-  
-  return {
-    // 其他元数据...
-    ...(customHeadContent ? {
-      scripts: [
-        {
-          type: 'text/javascript',
-          dangerouslySetInnerHTML: {
-            __html: customHeadContent
-          }
-        }
-      ]
-    } : {})
-  };
-}
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale = defaultLocale } = await params;
