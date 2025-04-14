@@ -1,4 +1,13 @@
 {
+    "2025-04-14": {
+        "version": "2.0.25",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "修复单游戏模板下iframe区域没有显示广告内容的问题"],
+        "modify": [
+            "app/[locale]/(public)/page.tsx"
+        ]
+    },
     "2025-04-13": {
         "version": "2.0.24",
         "messagesKeyModify": false,
