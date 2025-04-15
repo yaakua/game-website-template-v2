@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import {siteConfig} from '@/lib/config/site';
 import { permanentRedirect } from 'next/navigation'
-export const dynamic = 'force-static'
 type Props = {
   params: Promise<{ locale: string}>;
 };

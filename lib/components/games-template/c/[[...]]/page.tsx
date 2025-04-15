@@ -7,7 +7,6 @@ import { getHomeSettings } from '@/lib/utils/game-box-settings';
 import GameCard from '@/lib/components/game-category/GameCard';
 import Link from 'next/link';
 import { AppLayout } from '@/lib/components/layout/AppLayout';
-export const dynamic = 'force-static'
 interface Props {
   params: Promise<{ locale: string; page: string[] }>;
 }

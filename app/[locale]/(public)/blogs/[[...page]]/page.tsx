@@ -9,7 +9,6 @@ import dayjs from 'dayjs';
 import {siteConfig as mainConfig} from '@/lib/config/site'
 import { AppLayout } from '@/lib/components/layout/AppLayout';
 import { getHomeSettings } from '@/lib/utils/game-box-settings';
-export const dynamic = 'force-static'
 type Props = {
   params: Promise<{ locale: string; page: string }>;
 };

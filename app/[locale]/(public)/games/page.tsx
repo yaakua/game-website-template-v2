@@ -6,7 +6,6 @@ import fs from 'fs';
 import path from 'path';
 import {Link} from '@/lib/i18n/navigation'
 import { getPathnameWithLocale } from '@/lib/i18n/navigation';
-export const dynamic = 'force-static'
 type Props = {
   params: Promise<{ locale: string }>;
 };

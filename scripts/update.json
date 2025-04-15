@@ -1,9 +1,33 @@
 {
+    "2025-04-15": {
+        "version": "2.0.26",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "优化多个页面组件，去掉fore-static标识",
+            "删除不再使用的文件",
+            "更新nextjs版本到最新15.3.0"
+        ],
+        "modify": [
+            "app/[locale]/(public)/blogs/[[...page]]/page.tsx",
+            "app/[locale]/(public)/games/page.tsx",
+            "app/[locale]/(public)/privacy-policy/page.tsx",
+            "app/[locale]/(public)/t/page.tsx",
+            "app/[locale]/(public)/terms-of-services/page.tsx",
+            "lib/components/games-template/c/[[...]]/page.tsx",
+            "lib/components/games-template/game-box.tsx",
+            "lib/utils/index.ts",
+            "package.json"
+        ],
+        "delete": [
+            "lib/utils/handle-errors.ts"
+        ]
+    },
     "2025-04-14": {
         "version": "2.0.25",
         "messagesKeyModify": false,
         "changeLog": [
-            "修复单游戏模板下iframe区域没有显示广告内容的问题"],
+            "修复单游戏模板下iframe区域没有显示广告内容的问题"
+        ],
         "modify": [
             "app/[locale]/(public)/page.tsx"
         ]
@@ -12,7 +36,8 @@
         "version": "2.0.24",
         "messagesKeyModify": false,
         "changeLog": [
-            "修复自定义header内容，无法插入script标签的问题，改为支持插入任意内容"],
+            "修复自定义header内容，无法插入script标签的问题，改为支持插入任意内容"
+        ],
         "modify": [
             "app/layout.tsx",
             "app/[locale]/(public)/layout.tsx"
