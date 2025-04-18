@@ -6,9 +6,9 @@ import { getTheme } from './lib/config/themes';
 import siteConfig from './lib/config/site.json';
 
 const theme = getTheme(siteConfig.theme?.name || 'default');
-console.log("###加载theme",siteConfig.theme?.name);
+console.log("###加载theme", siteConfig.theme?.name);
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: 'class',
   content: [
     './app/**/*.{ts,tsx}',
     './lib/components/**/*.{ts,tsx}',

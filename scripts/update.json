@@ -1,4 +1,22 @@
 {
+    "2025-04-19": {
+        "version": "2.0.27",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "更新项目依赖和配置文件",
+            "迁移 postcss 配置到新格式"
+        ],
+        "modify": [
+            "package.json",
+            "tailwind.config.ts"
+        ],
+        "delete": [
+            "postcss.config.mjs"
+        ],
+        "add": [
+            "postcss.config.js"
+        ]
+    },
     "2025-04-15": {
         "version": "2.0.26",
         "messagesKeyModify": false,
