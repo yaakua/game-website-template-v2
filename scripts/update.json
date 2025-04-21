@@ -1,4 +1,20 @@
 {
+    "2025-04-21": {
+        "version": "2.0.28",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "还原tailwindcss版本到3.4.17",
+            "修改 PostCSS 配置",
+            "移除 bun.lockb 文件"
+        ],
+        "modify": [
+            "package.json",
+            "postcss.config.js"
+        ],
+        "delete": [
+            "bun.lockb"
+        ]
+    },
     "2025-04-19": {
         "version": "2.0.27",
         "messagesKeyModify": false,

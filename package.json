@@ -1,6 +1,6 @@
 {
   "name": "fafafa-game-website-template",
-  "version": "2.0.26",
+  "version": "2.0.27",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -118,7 +118,7 @@
     "postcss": "^8",
     "prettier": "^3.5.3",
     "raw-loader": "^4.0.2",
-    "tailwindcss": "^4.1.4",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5"
   },
   "packageManager": "yarn@1.22.22",
