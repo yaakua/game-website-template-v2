@@ -4,7 +4,7 @@ import { defaultLocale, locales, alternatesLanguage } from '@/lib/i18n/locales';
 import { siteConfig } from '@/lib/config/site';
 import fs from 'fs';
 import path from 'path';
-import {Link} from '@/lib/i18n/navigation'
+import { Link } from '@/lib/i18n/navigation'
 import { getPathnameWithLocale } from '@/lib/i18n/navigation';
 type Props = {
   params: Promise<{ locale: string }>;
@@ -56,9 +56,9 @@ async function getGameName(directory: string, pagePath: string, defaultName: str
 async function getGames(locale: string) {
   const gamesDir = path.join(process.cwd(), 'app/[locale]/(public)/games');
   const entries = fs.readdirSync(gamesDir, { withFileTypes: true });
-  
+
   const games: GameInfo[] = [];
-  
+
   for (const entry of entries) {
     if (entry.isDirectory() && entry.name !== 'assets') {
       const configPath = path.join(gamesDir, entry.name, 'config', 'config.json');
@@ -80,14 +80,14 @@ async function getGames(locale: string) {
       }
     }
   }
-  
+
   // 按创建时间倒序排序
   games.sort((a, b) => {
     const dateA = new Date(a.createdTime).getTime();
     const dateB = new Date(b.createdTime).getTime();
     return dateB - dateA;
   });
-  
+
   return games;
 }
 
@@ -96,7 +96,7 @@ export default async function GamesPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations("GamePage");
   const games = await getGames(locale);
-  
+
   const getGridCols = (count: number) => {
     if (count <= 4) return 'lg:grid-cols-4';
     if (count <= 6) return 'lg:grid-cols-6';
@@ -112,7 +112,7 @@ export default async function GamesPage({ params }: Props) {
         <div className={`grid grid-cols-1 md:grid-cols-2 ${gridColumns} gap-6`}>
           {games.map((game) => (
             <Link
-              href={getPathnameWithLocale(`/games/${game.directory}`, locale)}
+              href={`/games/${game.directory}`}
               key={game.directory}
               className="group block bg-card rounded-lg overflow-hidden hover:ring-2 hover:ring-accent transition-all duration-300"
             >

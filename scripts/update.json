@@ -1,4 +1,14 @@
 {
+    "2025-04-21 17": {
+        "version": "2.0.29",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "修复游戏列表页面的链接会多出一个语言的问题"
+        ],
+        "modify": [
+            "app/[locale]/(public)/games/page.tsx"
+        ]
+    },
     "2025-04-21": {
         "version": "2.0.28",
         "messagesKeyModify": false,
