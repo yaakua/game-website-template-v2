@@ -1,4 +1,17 @@
 {
+    "2025-04-24": {
+        "version": "2.0.30",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "优化404和错误页面"
+        ],
+        "modify": [
+            "app/[locale]/(public)/not-found.tsx",
+            "app/[locale]/(public)/error.tsx",
+            "app/global-error.tsx",
+            "app/not-found.tsx"
+        ]
+    },
     "2025-04-21 17": {
         "version": "2.0.29",
         "messagesKeyModify": false,

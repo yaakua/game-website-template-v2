@@ -1,12 +1,12 @@
 'use client';
-import { Link } from '@/lib/i18n/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 export default function NotFoundPage() {
   return (
     <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start h-screen md:px-8">
       <div className="max-w-lg mx-auto flex-1 flex-row-reverse gap-12 items-center justify-between md:max-w-none md:flex">
         <div className="flex-1 max-w-lg">
-          <Image alt="404-Error-amico" src="/404-amico.webp" loading="lazy"  width={400} height={400}/>
+          <Image alt="404-Error-amico" src="/404-amico.webp" loading="lazy" width={400} height={400} />
         </div>
         <div className="mt-12 flex-1 max-w-lg space-y-3 md:mt-0">
           <h3 className="text-primary font-semibold">404 Error</h3>
