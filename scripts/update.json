@@ -1,4 +1,15 @@
 {
+    "2025-04-24 16": {
+        "version": "2.0.31",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "强制博客列表页面和文章页面为静态生成,避免mdx内容有误导致运行时提示404"
+        ],
+        "modify": [
+            "app/[locale]/(public)/blogs/[[...page]]/page.tsx",
+            "app/[locale]/(public)/t/page.tsx"
+        ]
+    },
     "2025-04-24": {
         "version": "2.0.30",
         "messagesKeyModify": false,

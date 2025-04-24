@@ -1,11 +1,12 @@
 import { alternatesCanonical, alternatesLanguage, defaultLocale, locales } from '@/lib/i18n/locales';
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import {siteConfig} from '@/lib/config/site';
+import { siteConfig } from '@/lib/config/site';
 import { permanentRedirect } from 'next/navigation'
 type Props = {
-  params: Promise<{ locale: string}>;
+  params: Promise<{ locale: string }>;
 };
+export const dynamic = 'force-static'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale = defaultLocale } = await params;
@@ -45,8 +46,8 @@ type PageProps = {
 };
 
 export default async function Page({ params }: PageProps) {
-    const { locale } = await params;
-    setRequestLocale(locale);
-    const t = await getTranslations({ locale });
-    permanentRedirect(`${alternatesCanonical(locale, '/blogs')}`);
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale });
+  permanentRedirect(`${alternatesCanonical(locale, '/blogs')}`);
 }
