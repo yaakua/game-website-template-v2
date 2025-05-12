@@ -4,23 +4,23 @@ import { useState, useEffect, useRef } from 'react';
 import IframeActions from './IframeActions';
 import { useTranslations } from 'next-intl';
 
-export default function LazyIframe({ 
-  gameIframeUrl, 
-  title, 
+export default function LazyIframe({
+  gameIframeUrl,
+  title,
   pageName,
   description,
   gameImage,
   playGameButtonText,
   loadingTitle,
   type = 'iframe',
-}: { 
-  gameIframeUrl: string, 
+}: {
+  gameIframeUrl: string,
   title: string,
-  pageName: string|null|undefined,
+  pageName: string | null | undefined,
   description?: string,
   gameImage?: string,
   playGameButtonText?: string,
-  loadingTitle?:string,
+  loadingTitle?: string,
   type?: 'iframe' | 'download'
 }) {
   const [iframeLoaded, setIframeLoaded] = useState(false);
@@ -28,11 +28,14 @@ export default function LazyIframe({
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const t = useTranslations();
   const loadingTitleText = loadingTitle || t('loadingTitle');
-  
+
   useEffect(() => {
     // 页面加载后3秒自动加载iframe
     const timer = setTimeout(() => {
-      setIframeLoaded(true);
+      // 防止加载未知的地址，导致页面发生滚动
+      if (gameIframeUrl && gameIframeUrl !== "" && gameIframeUrl !== "#") {
+        setIframeLoaded(true);
+      }
     }, 3000);
 
     return () => clearTimeout(timer);
@@ -58,21 +61,21 @@ export default function LazyIframe({
     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-lazy-iframe-background/90 backdrop-blur-md rounded-2xl overflow-hidden">
       {/* 渐变背景层 */}
       <div className="absolute inset-0 bg-gradient-to-br from-lazy-iframe-glow-1 via-lazy-iframe-overlay to-lazy-iframe-glow-2 rounded-2xl" />
-      
+
       {/* 发光效果层 */}
       <div className="absolute top-0 left-1/4 w-full h-1/2 bg-lazy-iframe-glow-1 rotate-12 transform-gpu blur-3xl opacity-70" />
       <div className="absolute bottom-0 right-1/4 w-full h-1/2 bg-lazy-iframe-glow-2 -rotate-12 transform-gpu blur-3xl opacity-70" />
       <div className="absolute top-1/4 right-0 w-1/2 h-1/2 bg-lazy-iframe-glow-1 rotate-45 transform-gpu blur-3xl opacity-70" />
       <div className="absolute bottom-1/4 left-0 w-1/2 h-1/2 bg-lazy-iframe-glow-2 -rotate-45 transform-gpu blur-3xl opacity-70" />
-      
+
       {/* 内容层 */}
       <div className="relative z-10 w-full mx-auto px-4 md:px-8">
         <div className="flex flex-col items-center gap-2 md:gap-8">
           <div className="relative group w-full max-w-[220px] md:max-w-[480px] cursor-pointer" onClick={handlePlayClick}>
             <div className="w-full aspect-video rounded-2xl overflow-hidden border border-lazy-iframe-glow-1 backdrop-blur-sm shadow-xl">
               {gameImage ? (
-                <img 
-                  src={gameImage} 
+                <img
+                  src={gameImage}
                   alt={title}
                   width={480}
                   height={270}
@@ -101,13 +104,13 @@ export default function LazyIframe({
                 className="group relative flex items-center gap-2 md:gap-3 text-lazy-iframe-button-foreground px-4 py-2 md:py-3 rounded-full font-bold text-lg md:text-xl transition-all duration-300 transform hover:scale-105"
               >
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-lazy-iframe-button-from to-lazy-iframe-button-to group-hover:from-lazy-iframe-button-hover-from group-hover:to-lazy-iframe-button-hover-to transition-all duration-300 shadow-[0_0_40px_var(--tw-shadow-color)] shadow-lazy-iframe-button-shadow-color" />
-                
+
                 <span className="relative flex items-center justify-center w-8 h-8 md:w-12 md:h-12 rounded-full bg-lazy-iframe-button-bg group-hover:bg-lazy-iframe-button-bg-hover transition-colors backdrop-blur-sm">
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-6 w-6 md:h-7 md:w-7" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 md:h-7 md:w-7"
+                    fill="none"
+                    viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -126,7 +129,7 @@ export default function LazyIframe({
     <div className={"w-full flex flex-col"}>
       <div className={"w-full h-[300px] md:h-[650px] md:min-h-[650px] rounded-2xl relative overflow-hidden"}>
         {!showIframeOnly && renderInitialContent()}
-        
+
         {iframeLoaded && (
           <div className={`w-full h-full ${!showIframeOnly ? 'absolute inset-0 z-10' : ''}`}>
             <div className="w-full h-full bg-iframe-background rounded-2xl overflow-hidden shadow-lg border border-iframe-border">
@@ -144,7 +147,7 @@ export default function LazyIframe({
             </div>
           </div>
         )}
-        
+
         {!iframeLoaded && showIframeOnly && (
           <div className="w-full h-full">
             <div className="w-full h-full flex items-center justify-center bg-lazy-iframe-background/90 backdrop-blur-md rounded-2xl border border-iframe-border">
@@ -156,7 +159,7 @@ export default function LazyIframe({
           </div>
         )}
       </div>
-      
+
     </div>
   );
 }

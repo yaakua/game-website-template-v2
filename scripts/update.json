@@ -1,4 +1,14 @@
 {
+    "2025-05-12": {
+        "version": "2.0.32",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "防止游戏地址为空或者游戏类型是下载游戏页面时，导致页面自动滚动的问题"
+        ],
+        "modify": [
+            "app/[locale]/(public)/views/LazyIframe.tsx"
+        ]
+    },
     "2025-04-24 16": {
         "version": "2.0.31",
         "messagesKeyModify": false,

@@ -1,6 +1,6 @@
 {
   "name": "fafafa-game-website-template",
-  "version": "2.0.30",
+  "version": "2.0.32",
   "private": true,
   "scripts": {
     "dev": "next dev",
