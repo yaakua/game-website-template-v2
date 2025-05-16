@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../fafafa-projects/cm3tvyn990002mp4f5v0tdr5g"
+		},
+		{
+			"path": "../fafafa-ai-web-nextjs"
+		}
+	],
+	"settings": {
+		"i18n-ally.localesPaths": [
+			"messages",
+			"lib/i18n"
+		]
+	}
+}
