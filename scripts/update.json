@@ -1,4 +1,18 @@
 {
+    "2025-06-26": {
+        "version": "2.0.33",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "修复博客页面第一次访问样式显示不正确问题"
+        ],
+        "modify": [
+            "app/[locale]/(public)/blogs/[[...page]]/page.tsx",
+            "lib/components/locale-dropdown.tsx"
+        ],
+        "add": [
+            "lib/components/blogs/ArticleList.tsx"
+        ]
+    },
     "2025-05-12": {
         "version": "2.0.32",
         "messagesKeyModify": false,
