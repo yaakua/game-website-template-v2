@@ -1,4 +1,14 @@
 {
+    "2025-06-26 2": {
+        "version": "2.0.34",
+        "messagesKeyModify": false,
+        "changeLog": [
+            "修复博客页面第一次访问样式显示不正确问题"
+        ],
+        "modify": [
+            "lib/components/navbar.tsx"
+        ]
+    },
     "2025-06-26": {
         "version": "2.0.33",
         "messagesKeyModify": false,

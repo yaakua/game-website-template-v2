@@ -31,13 +31,9 @@ export default function AppNavbar({ items }: { items: NavbarItem[] }) {
   const isActive = (href: string) => pathname === href;
 
   const toggleSubmenu = (title: string) => {
-    setOpenItems(prev => 
-      prev.includes(title) 
-        ? prev.filter(item => item !== title)
-        : [...prev, title]
-    );
+    setOpenItems((prev) => (prev.includes(title) ? prev.filter((item) => item !== title) : [...prev, title]));
   };
-  const logoUrl = siteConfig.logoUrl ? siteConfig.logoUrl : '/logo.svg'
+  const logoUrl = siteConfig.logoUrl ? siteConfig.logoUrl : '/logo.svg';
 
   const handleLocaleChange = (value: string) => {
     // implement locale change logic here
@@ -56,8 +52,8 @@ export default function AppNavbar({ items }: { items: NavbarItem[] }) {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent 
-            side="left" 
+          <SheetContent
+            side="left"
             className="w-[300px] sm:w-[400px] bg-navbar/95 backdrop-blur supports-[backdrop-filter]:bg-navbar/60"
           >
             <SheetHeader>
@@ -80,53 +76,51 @@ export default function AppNavbar({ items }: { items: NavbarItem[] }) {
                         <span>{item.title}</span>
                         <ChevronDown
                           className={cn(
-                            "h-4 w-4 transition-transform duration-200",
-                            openItems.includes(item.title) ? "rotate-180" : ""
+                            'h-4 w-4 transition-transform duration-200',
+                            openItems.includes(item.title) ? 'rotate-180' : '',
                           )}
                         />
                       </button>
                       <div
                         className={cn(
-                          "ml-4 flex flex-col gap-2 overflow-hidden transition-all duration-200",
-                          openItems.includes(item.title) ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                          'ml-4 flex flex-col gap-2 overflow-hidden transition-all duration-200',
+                          openItems.includes(item.title) ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0',
                         )}
                       >
                         {item.children.map((child) => (
-                          <Link
-                            key={child.title}
-                            href={child.href}
-                            target={child.href.startsWith('http') ? "_blank" : "_self"}
-                            rel={child.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                            className={cn(
-                              'flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md text-navbar-foreground/80',
-                              'hover:bg-navbar-foreground/10 hover:text-navbar-foreground transition-colors',
-                              isActive(child.href) && 'bg-navbar-foreground/10 text-navbar-foreground'
-                            )}
-                            onClick={(e) => {
-                              setIsMenuOpen(false);
-                            }}
-                          >
-                            {child.title}
-                          </Link>
+                            <a key={child.href}
+                              href={child.href}
+                              className={cn(
+                                'flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md text-navbar-foreground/80',
+                                'hover:bg-navbar-foreground/10 hover:text-navbar-foreground transition-colors',
+                                isActive(child.href) && 'bg-navbar-foreground/10 text-navbar-foreground',
+                              )}
+                              // 其他普通的 <a> 标签属性，比如 target
+                              target={child.href.startsWith('http') ? '_blank' : '_self'}
+                              rel={child.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                              onClick={(e) => {
+                                setIsMenuOpen(false);
+                              }}
+                            >
+                              {child.title}
+                            </a>
                         ))}
                       </div>
                     </div>
                   ) : (
-                    <Link
-                      href={item.href}
-                      target={item.href.startsWith('http') ? "_blank" : "_self"}
-                      rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                      className={cn(
-                        'flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md text-navbar-foreground/80',
-                        'hover:bg-navbar-foreground/10 hover:text-navbar-foreground transition-colors',
-                        isActive(item.href) && 'bg-navbar-foreground/10 text-navbar-foreground'
-                      )}
-                      onClick={(e) => {
-                        setIsMenuOpen(false);
-                      }}
-                    >
-                      {item.title}
-                    </Link>
+                      <a key={item.href}
+                        href={item.href}
+                        className={cn(
+                          'flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md text-navbar-foreground/80',
+                          'hover:bg-navbar-foreground/10 hover:text-navbar-foreground transition-colors',
+                          isActive(item.href) && 'bg-navbar-foreground/10 text-navbar-foreground',
+                        )}
+                        // 其他普通的 <a> 标签属性，比如 target
+                        target={item.href.startsWith('http') ? '_blank' : '_self'}
+                        rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {item.title}
+                      </a>
                   )}
                 </div>
               ))}
@@ -138,10 +132,7 @@ export default function AppNavbar({ items }: { items: NavbarItem[] }) {
         </Sheet>
 
         <div className="flex items-center gap-6">
-          <Link
-            href="/"
-            className="flex items-center space-x-2 group"
-          >
+          <Link href="/" className="flex items-center space-x-2 group">
             <img
               src={logoUrl}
               className="h-10 md:h-14 w-auto rounded-xl"
@@ -158,7 +149,6 @@ export default function AppNavbar({ items }: { items: NavbarItem[] }) {
                 {siteConfig.name as any}
               </p>
             </div>
-           
           </Link>
         </div>
 
@@ -169,53 +159,55 @@ export default function AppNavbar({ items }: { items: NavbarItem[] }) {
                 <NavigationMenu.Item key={item.title} className="relative">
                   {item.children ? (
                     <>
-                      <NavigationMenu.Trigger 
-                        className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-navbar-foreground/80 hover:text-navbar-foreground hover:bg-navbar-foreground/10 transition-colors"
-                      >
+                      <NavigationMenu.Trigger className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-navbar-foreground/80 hover:text-navbar-foreground hover:bg-navbar-foreground/10 transition-colors">
                         {item.title}
                         <ChevronDown
                           className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                           aria-hidden="true"
                         />
                       </NavigationMenu.Trigger>
-                      <NavigationMenu.Content className={cn(
-                        "absolute top-full left-0 mt-2 w-48 origin-top-left rounded-md bg-navbar/95 backdrop-blur-sm p-2 shadow-lg ring-1 ring-border ring-opacity-5 focus:outline-none",
-                        "data-[motion=from-start]:animate-enterFromLeft",
-                        "data-[motion=from-end]:animate-enterFromRight",
-                        "data-[motion=to-start]:animate-exitToLeft",
-                        "data-[motion=to-end]:animate-exitToRight"
-                      )}>
+                      <NavigationMenu.Content
+                        className={cn(
+                          'absolute top-full left-0 mt-2 w-48 origin-top-left rounded-md bg-navbar/95 backdrop-blur-sm p-2 shadow-lg ring-1 ring-border ring-opacity-5 focus:outline-none',
+                          'data-[motion=from-start]:animate-enterFromLeft',
+                          'data-[motion=from-end]:animate-enterFromRight',
+                          'data-[motion=to-start]:animate-exitToLeft',
+                          'data-[motion=to-end]:animate-exitToRight',
+                        )}
+                      >
                         {item.children.map((child) => (
-                          <Link
-                            key={child.title}
-                            href={child.href}
-                            target={child.href.startsWith('http') ? "_blank" : "_self"}
-                            rel={child.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                            className={cn(
-                              'block px-4 py-2 text-sm rounded-md text-navbar-foreground/80',
-                              'hover:bg-navbar-foreground/10 hover:text-navbar-foreground transition-colors',
-                              isActive(child.href) && 'bg-navbar-foreground/10 text-navbar-foreground'
-                            )}
-                          >
-                            {child.title}
-                          </Link>
+                            <a key={child.href}
+                              href={child.href}
+                              className={cn(
+                                'group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2',
+                                'text-sm font-medium text-navbar-foreground/80 transition-colors',
+                                'hover:bg-navbar-foreground/10 hover:text-navbar-foreground',
+                                isActive(child.href) && 'bg-navbar-foreground/10 text-navbar-foreground',
+                              )}
+                              // 其他普通的 <a> 标签属性，比如 target
+                              target={child.href.startsWith('http') ? '_blank' : '_self'}
+                              rel={child.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            >
+                              {child.title}
+                            </a>
                         ))}
                       </NavigationMenu.Content>
                     </>
                   ) : (
-                    <Link
-                      href={item.href}
-                      target={item.href.startsWith('http') ? "_blank" : "_self"}
-                      rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                      className={cn(
-                        'group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2',
-                        'text-sm font-medium text-navbar-foreground/80 transition-colors',
-                        'hover:bg-navbar-foreground/10 hover:text-navbar-foreground',
-                        isActive(item.href) && 'bg-navbar-foreground/10 text-navbar-foreground'
-                      )}
-                    >
-                      {item.title}
-                    </Link>
+                      <a key={item.href}
+                        href={item.href}
+                        className={cn(
+                          'group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2',
+                          'text-sm font-medium text-navbar-foreground/80 transition-colors',
+                          'hover:bg-navbar-foreground/10 hover:text-navbar-foreground',
+                          isActive(item.href) && 'bg-navbar-foreground/10 text-navbar-foreground',
+                        )}
+                        // 其他普通的 <a> 标签属性，比如 target
+                        target={item.href.startsWith('http') ? '_blank' : '_self'}
+                        rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {item.title}
+                      </a>
                   )}
                 </NavigationMenu.Item>
               ))}
@@ -227,7 +219,6 @@ export default function AppNavbar({ items }: { items: NavbarItem[] }) {
           <div className="transform hover:scale-105 transition-transform duration-200">
             <LocaleDropdown />
           </div>
-          
         </div>
       </div>
     </header>
