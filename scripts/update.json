@@ -3,9 +3,10 @@
         "version": "2.0.34",
         "messagesKeyModify": false,
         "changeLog": [
-            "修复博客页面第一次访问样式显示不正确问题"
+            "修复博客页面第一次访问样式显示不正确问题,修复Vercel部署后依然不正确问题"
         ],
         "modify": [
+            "app/[locale]/(public)/blogs/[[...page]]/page.tsx",
             "lib/components/navbar.tsx"
         ]
     },

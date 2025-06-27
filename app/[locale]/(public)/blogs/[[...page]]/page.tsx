@@ -11,7 +11,7 @@ import { ArticleList } from '@/lib/components/blogs/ArticleList';
 type Props = {
   params: Promise<{ locale: string; page: string }>;
 };
-export const dynamic = 'auto'
+export const dynamic = 'force-static'
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale = defaultLocale, page } = await params;
   setRequestLocale(locale);
