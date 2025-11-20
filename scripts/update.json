@@ -1,4 +1,14 @@
 {
+  "2025-11-20": {
+    "version": "2.0.35",
+    "messagesKeyModify": false,
+    "changeLog": [
+      "更新react版本到19.2.0，解决react-konva版本不兼容问题"
+    ],
+    "modify": [
+      "package.json"
+    ]
+  },
     "2025-06-26 2": {
         "version": "2.0.34",
         "messagesKeyModify": false,
